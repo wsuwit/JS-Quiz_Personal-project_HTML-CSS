@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Lucida+Calligraphy&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Lucida+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="./style.css">
+  <title>Welcome to Magical JS Quiz</title>
+</head>
+
+<body>
+
+  <div class="w3-container">
+
+    <!-- Nav bar -->
+    <nav class="w3-bar w3-margin w3-container">
+      <span class="logo w3-text-orange"> <img
+          src="https://www.thepartysquad.co.uk/wp-content/uploads/Wizard-Hat-small-website-.png" alt="Orange wizard hat"
+          style="width:37px;">JS Quiz</span>
+      <button class="w3-text-white w3-button w3-ripple w3-mobile" onclick="openPage('Home')">Home</button>
+      <button class="w3-text-white w3-button w3-ripple w3-mobile" onclick="openPage('About')">About Us</button>
+      <button class="w3-text-white w3-button w3-ripple w3-mobile" onclick="openPage('Leader')">Leader Board</button>
+      <button class="w3-text-white w3-button w3-ripple w3-mobile" onclick="openPage('Curriculum')">Curriculum</button>
+      <button id="Admin-tool" class="w3-text-white w3-button w3-ripple w3-mobile w3-amber w3-opacity-max"
+        onclick="openPage('Admin')">Admin
+        Tool</button>
+      <button id="LogIn-button" onclick="document.getElementById('LogIn-modal').style.display='block'"
+        class="w3-button w3-orange w3-hover-deep-orange w3-text-white w3-round-large w3-right w3-mobile">
+        LogIn
+      </button>
+    </nav>
+
+    <!-- LogIn modal -->
+    <div id="LogIn-modal" class="w3-modal">
+      <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-dark-gray w3-round-large" style="max-width:600px">
+
+        <div class="w3-center"><br>
+          <span onclick="document.getElementById('LogIn-modal').style.display='none'"
+            class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+          <span class="logo w3-text-orange"> <img
+              src="https://www.thepartysquad.co.uk/wp-content/uploads/Wizard-Hat-small-website-.png"
+              alt="Orange wizard hat" style="width:37px;">JS Quiz</span>
+          <h2>Log In to Your Account</h2>
+        </div>
+
+        <form class="w3-container" action="#">
+          <div class="w3-section">
+            <label><b>Username</b></label>
+            <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname"
+              required>
+            <label><b>Password</b></label>
+            <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
+            <div class="w3-center w3-small">
+              <p>Not yet a member?</p>
+              <a href="#" onclick="document.getElementById('SignUp-modal').style.display='block'"
+                class="w3-text-orange">Create Account</a>
+            </div>
+            <button class="w3-button w3-block w3-orange w3-text-white w3-section w3-padding"
+              type="submit">Continue</button>
+            <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+          </div>
+        </form>
+
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+          <button onclick="document.getElementById('LogIn-modal').style.display='none'" type="button"
+            class="w3-button w3-red">Cancel</button>
+          <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SignUp modal -->
+    <div id="SignUp-modal" class="w3-modal">
+      <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-dark-gray w3-round-large" style="max-width:600px">
+
+        <div class="w3-center"><br>
+          <span onclick="document.getElementById('SignUp-modal').style.display='none'"
+            class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+          <span class="logo w3-text-orange"> <img
+              src="https://www.thepartysquad.co.uk/wp-content/uploads/Wizard-Hat-small-website-.png"
+              alt="Orange wizard hat" style="width:37px;">JS Quiz</span>
+          <h2>Sign Up</h2>
+        </div>
+
+        <form class="w3-container" action="#">
+          <div class="w3-section">
+            <label><b>Username</b></label>
+            <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname"
+              required>
+            <label><b>Password</b></label>
+            <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="Enter Password" name="psw"
+              required>
+            <label><b>Nickname</b></label>
+            <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Nickname" name="usrname"
+              required>
+            <button class="w3-button w3-orange w3-text-white w3-margin-top w3-padding" type="submit"
+              style="width: 100%;">Sign up
+              for
+              free</button>
+          </div>
+        </form>
+
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey w3-margin-top">
+          <button onclick="document.getElementById('SignUp-modal').style.display='none'" type="button"
+            class="w3-button w3-red">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Home page -->
+    <main id="Home" class="w3-container w3-animate-opacity Page">
+
+      <!-- Header content -->
+      <header class="w3-container w3-margin-bottom w3-center Header Header--background">
+        <div class="Header__content-box">
+          <h1 class=" w3-text-white">Place to reinforce your magical JavaScript basic</h1>
+          <p class="w3-text-white w3-small w3-margin">
+            Practicing programming is like practicing casting spells in magic
+            world. From “Zero” to “Hero”, here we will guide you through with
+            basic mysterious quizzes. The path you wished for will become true.
+          </p>
+          <button class="w3-button w3-orange w3-hover-deep-orange w3-text-white w3-round-large w3-ripple"
+            onclick="openPage('QuizPage')">Play now</button>
+        </div>
+      </header>
+
+      <!-- Content section -->
+      <section class="w3-container">
+        <article class="w3-row-padding w3-margin Article">
+          <img class="w3-col s12 m12 l6 w3-round-xxlarge img-width"
+            src="https://images.unsplash.com/photo-1553991562-9f24b119ff51?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8a2V5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            alt="Secret key">
+          <div class="w3-col l4">
+            <h3 class="w3-text-orange">The key to success</h3>
+            <p class="w3-text-white">
+              Passion is the best fuel to help you on the long run and if you are
+              a beginner, to become a great programmer needs time for practicing but soon you will get used to.
+              <br />
+              If you are looking for a place that can assist you in learning
+              JavaScript programming basic with interesting quizzes. Here we will
+              try our best to help you.
+            </p>
+          </div>
+        </article>
+        <hr />
+        <article class="w3-row-padding w3-margin Article w3-mobile">
+          <div class="w3-col l4">
+            <h3 class="w3-text-orange">Leader board competition</h3>
+            <p class="w3-text-white">
+              " Visit, Vision, Victory! "
+              <br />
+              In order to get you excited, leader board will be a place for you to
+              be recognized among friends.
+              <br />
+              Make sure you are logged in because, all the progression will be auto-saved.
+            </p>
+          </div>
+          <img class="w3-col s12 m12 l6 w3-round-xxlarge img-width"
+            src="https://www.rocketreferrals.com/wp-content/uploads/2019/11/Leaderboard-blog.png" alt="Leader board">
+        </article>
+        <hr />
+        <article class="w3-row-padding w3-margin w3-center Article">
+          <div class="w3-col s12 m12 w3-margin-bottom">
+            <h3 class="w3-text-orange">Achievement ranking</h3>
+            <p class="w3-text-white">
+              Evidence of your progression as you advance through the courses.
+              You will get some cool badges for your accomplishments.
+            </p>
+          </div>
+          <img class="w3-round-xxlarge img-width"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkokgXNQMLR9mJTWpt4UiBTLSQDI9JT8WqCfA00D7cGeSkGZNgzNrNm9cQhkotNQVX5kU&usqp=CAU"
+            alt="Badges">
+        </article>
+      </section>
+      <hr />
+    </main>
+
+    <!-- About page -->
+    <main id="About" class="w3-container w3-animate-opacity Page hidden">
+
+      <!-- Header content -->
+      <header class="w3-container w3-margin-bottom w3-center Header">
+        <div class="Header__content-box">
+          <h1 class=" w3-text-white">About JS Quiz</h1>
+          <p class="w3-text-white w3-small w3-margin">
+            Welcome friends to our "About page".<br />
+            We are glad to be a part of your magical JS basic learning.
+          </p>
+        </div>
+      </header>
+
+      <!-- Content section -->
+      <section class="w3-container">
+        <article class="w3-row-padding w3-margin Article">
+          <img class="w3-col s12 m12 l6 w3-round-xxlarge img-width w3-margin"
+            src="http://www.codecampthailand.com/wp-content/uploads/2017/12/logo-1.png" alt="Codecamp Thailand">
+          <div class="w3-col l5 w3-margin">
+            <h3 class="w3-text-orange">About us</h3>
+            <p class="w3-text-white">
+              Introduction, we are Thailand Codecamp students (Codecamp#9) studying about web development.<br />
+              Infact, most of us have come from different fields of study and worked in different industies (only a few
+              graduated from Computer Science).<br />
+              But we all have the same goal "to become a programmer".<br />
+              Struggling, we have learned that for a beginner to Fullstack JavaScript world, it is quite hard and plenty
+              of subjects to learn.<br />
+              Through the difficulty we met, the only key to give you is "just keep practicing".<br />
+              As mentioned above, our suffering through the intense lessons due to our unprepared knowledge for web
+              development is a good lesson learn for beginner who wish to study in a Codecamp.<br />
+              The subjects you might need to learn before joining a web development Codecamp: UX-UI, HTML, CSS,
+              Bootstrap, JavaScript,
+              Git, React, Node.JS, Database, BasicSecurity, Redux.js, TDD, Webpack, Docker, SDLC+Document, Agile,
+              CleanCode, Style-guide and Creating projects.<br />
+              Here with this application, is part of our web development project. We wish this little JS based quizzes
+              can guide you to JS world.<br />
+              May the wisdom be with you.
+            </p>
+          </div>
+        </article>
+        <hr />
+      </section>
+    </main>
+
+    <!-- Leader page -->
+    <main id="Leader" class="w3-container w3-animate-opacity Page hidden">
+
+      <!-- Header content -->
+      <header class="w3-container w3-margin-bottom w3-center Header">
+        <div class="Header__content-box">
+          <h1 class=" w3-text-white">Leader Board</h1>
+          <p class="w3-text-white w3-small w3-margin">
+            In order to entertain you, we would like to give you an experience of competition through our Leaders Board.
+          </p>
+        </div>
+      </header>
+
+      <!-- Content section -->
+      <section class="w3-container">
+        <article class="w3-responsive">
+          <table class="w3-table w3-bordered w3-centered w3-hoverable w3-dark-gray">
+            <thead>
+              <tr class="w3-deep-orange">
+                <th>RANK</th>
+                <th>PLAYER</th>
+                <th>CLASS</th>
+                <th>TOTAL SCORE</th>
+              </tr>
+            </thead>
+            <tr class="w3-hover-khaki">
+              <td>1</td>
+              <td>Hero 001</td>
+              <td>Master</td>
+              <td>9999</td>
+            </tr>
+            <tr class="w3-hover-light-gray">
+              <td>2</td>
+              <td>Hero 002</td>
+              <td>Master</td>
+              <td>8888</td>
+            </tr>
+            <tr class="w3-hover-pale-red">
+              <td>3</td>
+              <td>Hero 003</td>
+              <td>Master</td>
+              <td>7777</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Hero 004</td>
+              <td>Diamond</td>
+              <td>6666</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Hero 005</td>
+              <td>Platinum</td>
+              <td>5555</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Hero 006</td>
+              <td>Gold</td>
+              <td>4444</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Hero 007</td>
+              <td>Silver</td>
+              <td>3333</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Hero 008</td>
+              <td>Bronze</td>
+              <td>2222</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Hero 009</td>
+              <td>Iron</td>
+              <td>1111</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Hero 010</td>
+              <td>Iron</td>
+              <td>999</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>Hero 011</td>
+              <td>Iron</td>
+              <td>888</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>Hero 012</td>
+              <td>Iron</td>
+              <td>777</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>Hero 013</td>
+              <td>Iron</td>
+              <td>666</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td>Hero 014</td>
+              <td>Iron</td>
+              <td>555</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>Hero 015</td>
+              <td>Iron</td>
+              <td>444</td>
+            </tr>
+          </table>
+        </article>
+        <hr />
+      </section>
+    </main>
+
+    <!-- Curriculum page -->
+    <main id="Curriculum" class="w3-container w3-animate-opacity Page hidden">
+
+      <!-- Header content -->
+      <header class="w3-container w3-margin-bottom w3-center Article">
+        <div class="Header__content-box">
+          <h2 class=" w3-text-white">Curriculum</h2>
+          <p class="w3-text-white w3-small w3-margin">
+            <i>"Wisdom is not a product of schooling but of the lifelong attempt to acquire it."</i><br />
+            <i>Albert Einstein</i>
+          </p>
+        </div>
+      </header>
+
+      <!-- Content section -->
+      <section class="Article">
+        <article class="Article" style="width:60%; min-width: 200px;">
+          <button class="w3-button w3-orange w3-text-white w3-section w3-mobile w3-ripple"
+            style="width: 50%; min-width: 200px;">Go to
+            current
+            challenge</button>
+          <button class="w3-button w3-orange w3-text-white w3-section w3-mobile w3-ripple"
+            style="width: 60%;">JavaScript
+            Easy
+            Quiz</button>
+          <button class="w3-button w3-orange w3-text-white w3-section w3-mobile w3-ripple"
+            style="width: 60%;">JavaScript
+            Basic
+            1</button>
+          <button class="w3-button w3-orange w3-text-white w3-section w3-mobile w3-ripple"
+            style="width: 60%;">JavaScript
+            Basic
+            2</button>
+          <button class="w3-button w3-orange w3-text-white w3-section w3-mobile w3-ripple"
+            style="width: 60%;">JavaScript
+            Basic
+            3</button>
+          <button class="w3-button w3-orange w3-text-white w3-section w3-mobile w3-ripple"
+            style="width: 60%;">JavaScript
+            Basic
+            4</button>
+          <button class="w3-button w3-orange w3-text-white w3-section w3-mobile w3-ripple"
+            style="width: 60%;">JavaScript
+            Basic
+            5</button>
+          <button class="w3-button w3-orange w3-text-white w3-section w3-mobile w3-ripple"
+            style="width: 60%;">JavaScript
+            Basic
+            6</button>
+          <button class="w3-button w3-orange w3-text-white w3-section w3-mobile w3-ripple"
+            style="width: 60%;">JavaScript
+            Basic
+            7</button>
+          <button class="w3-button w3-orange w3-text-white w3-section w3-mobile w3-ripple"
+            style="width: 60%;">JavaScript
+            Basic
+            8</button>
+          <button class="w3-button w3-orange w3-text-white w3-section w3-mobile w3-ripple"
+            style="width: 60%;">JavaScript
+            Basic
+            9</button>
+          <button class="w3-button w3-orange w3-text-white w3-section w3-mobile w3-ripple"
+            style="width: 60%;">JavaScript
+            Basic
+            10</button>
+        </article>
+      </section>
+    </main>
+
+    <!-- Admin tool -->
+    <main id="Admin" class="w3-container w3-animate-opacity Page hidden">
+
+      <!-- Admin Nav-bar -->
+      <nav class="w3-bar Admin__nav">
+        <div class="w3-bar-item">
+          <button class="w3-orange w3-button w3-ripple w3-mobile" onclick="openAdminTab('EditQuiz')">Edit
+            Quizzes</button>
+          <button class="w3-orange w3-button w3-ripple w3-mobile" onclick="openAdminTab('PlayerInfo')">Player
+            Information</button>
+        </div>
+        <div class="w3-bar-item w3-right">
+          <button class="w3-orange w3-button w3-ripple w3-mobile">Save edit</button>
+          <button class="w3-orange w3-button w3-ripple w3-mobile">Cancel</button>
+        </div>
+      </nav>
+
+      <!-- Edit Quizzes -->
+      <div id="EditQuiz" class="AdminTab">
+        <section class="w3-dark-gray Admin__section">
+          <aside class="w3-text-orange w3-bar-block w3-light-gray" style="width: 25%;">
+            <div class="w3-display-container w3-yellow">
+              <span nclick="this.parentElement.style.display='none'"
+                class="w3-button w3-red w3-display-topright w3-small w3-ripple">&times;</span>
+              <a href="#" class="w3-button w3-block w3-ripple">JavaScript Easy Quiz</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">JavaScript Basic 1</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">JavaScript Basic 2</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">JavaScript Basic 3</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">JavaScript Basic 4</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">JavaScript Basic 5</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">JavaScript Basic 6</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">JavaScript Basic 7</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">JavaScript Basic 8</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">JavaScript Basic 9</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">JavaScript Basic 10</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">+Add Subject</a>
+            </div>
+          </aside>
+
+          <div style="width: 75%;">
+            <article class="">
+              <p class="w3-margin-left">JavaScript Easy Quiz</p>
+              <p class="w3-margin-left">?1 of 10</p>
+              <p class="w3-margin-left">Which of the following is correct about JavaScript?</p>
+              <div class="Quiz">
+                <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice">
+                  JavaScript is a lightweight, interpreted programming language.</p>
+                <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice">
+                  JavaScript has object-oriented capabilities that allows you to build interactivity into otherwise
+                  static
+                  HTML pages.</p>
+                <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice">
+                  The general-purpose core of the language has been embedded in Netscape, Internet Explorer, and other
+                  web
+                  browser.</p>
+                <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice">
+                  All of the above.</p>
+              </div>
+              <hr />
+            </article>
+
+            <article class="">
+              <p class="w3-margin-left">JavaScript Easy Quiz</p>
+              <p class="w3-margin-left">?2 of 10</p>
+              <p class="w3-margin-left">Which of the following is a valid type of function JavaScript supports?</p>
+              <div class="Quiz">
+                <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice">
+                  named function</p>
+                <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice">
+                  anonymous function</p>
+                <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice">
+                  Both of the above.</p>
+                <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice">
+                  None of the above.</p>
+              </div>
+              <hr />
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <!-- Player Information -->
+      <div id="PlayerInfo" class="AdminTab hidden">
+        <section class="w3-dark-gray Admin__section">
+          <aside class="w3-text-orange w3-bar-block w3-light-gray" style="width: 25%;">
+            <div class="w3-display-container w3-yellow">
+              <span nclick="this.parentElement.style.display='none'"
+                class="w3-button w3-red w3-display-topright w3-small w3-ripple">&times;</span>
+              <a href="#" class="w3-button w3-block w3-ripple">Hero 001</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">Hero 002</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">Hero 003</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">Hero 004</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">Hero 005</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">Hero 006</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">Hero 007</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">Hero 008</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">Hero 009</a>
+            </div>
+            <div class="w3-display-container">
+              <a href="#" class="w3-button w3-block w3-ripple">Hero 010</a>
+            </div>
+          </aside>
+
+          <div style="width: 75%;">
+            <article class="">
+              <p class="w3-margin-left">Nickname: <span class="w3-text-blue">Hero 001</span> </p>
+              <p class="w3-margin-left">Username: <span class="w3-text-blue">hero001</span> </p>
+              <p class="w3-margin-left">Password: <span class="w3-text-blue">hero001</span> </p>
+              <p class="w3-margin-left">Join Date: <span class="w3-text-blue">Jul 9, 2021 @15:30</span> </p>
+              <p class="w3-margin-left">Last Log-In: <span class="w3-text-blue">Aug 5, 2021 @18:01</span> </p>
+              <p class="w3-margin-left">Total Score: <span class="w3-text-blue">9999</span> </p>
+              <hr />
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Quiz Pages -->
+    <main id="QuizPage" class="w3-container w3-animate-opacity Page hidden">
+
+      <!-- Header content -->
+      <header class="w3-container w3-margin-bottom w3-center Header--quiz Header--background">
+        <div class="Header__content-box">
+          <h1 class=" w3-text-white">Quiz</h1>
+          <p class="w3-text-white w3-small w3-margin">
+            Stay focus! From here the journey begins.<br />
+            Get into the point, Let's move on! <br />
+            <i>"Keep going, Keep growing"</i>
+          </p>
+        </div>
+      </header>
+
+      <!-- Content section -->
+      <section class="w3-container">
+
+        <!-- Quiz start -->
+        <article id="QuizStart" class="w3-row-padding w3-margin w3-center w3-animate-opacity Article QuizTab">
+          <div class="w3-col s12 m12 w3-margin-bottom">
+            <h4 class="w3-text-orange">JavaScript Easy Quiz</h4>
+            <p class="w3-text-white">Number of Quizzes : 10</p>
+            <p class="w3-text-white">Click on the light</p>
+          </div>
+          <img src="https://i.gifer.com/7bk3.gif" alt="the light" width="300px" class="w3-ripple pointer"
+            onclick="openQuizTab('Quizzing1')">
+        </article>
+
+        <!-- Quizzing -->
+        <div>
+          <article id="Quizzing1" class="w3-dark-gray w3-padding-16 w3-animate-opacity QuizTab hidden Quiz--bg">
+            <p class="w3-margin-left">JavaScript Easy Quiz</p>
+            <p class="w3-margin-left">?1 of 10</p>
+            <p class="w3-margin-left">Which of the following is correct about JavaScript?</p>
+            <div class="Quiz">
+              <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice">
+                JavaScript is a lightweight, interpreted programming language.</p>
+              <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice">
+                JavaScript has object-oriented capabilities that allows you to build interactivity into otherwise
+                static
+                HTML pages.</p>
+              <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice">
+                The general-purpose core of the language has been embedded in Netscape, Internet Explorer, and other
+                web
+                browser.</p>
+              <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice"
+                onclick="openQuizTab('Quizzing2')">
+                All of the above.</p>
+            </div>
+            <hr />
+          </article>
+
+          <article id="Quizzing2" class="w3-dark-gray w3-padding-16 w3-animate-right QuizTab hidden Quiz--bg">
+            <p class="w3-margin-left">JavaScript Easy Quiz</p>
+            <p class="w3-margin-left">?10 of 10</p>
+            <p class="w3-margin-left">Which of the following is a valid type of function JavaScript supports?</p>
+            <div class="Quiz">
+              <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice">
+                named function</p>
+              <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice">
+                anonymous function</p>
+              <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice"
+                onclick="openQuizTab('Quizzing10')">
+                Both of the above.</p>
+              <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice">
+                None of the above.</p>
+            </div>
+            <hr />
+          </article>
+
+          <article id="Quizzing10" class="w3-dark-gray w3-padding-16 w3-animate-right QuizTab hidden Quiz--bg">
+            <p class="w3-margin-left">JavaScript Easy Quiz</p>
+            <p class="w3-margin-left">?10 of 10</p>
+            <p class="w3-margin-left">Which of the following function of Array object represents the source code of an
+              object?</p>
+            <div class="Quiz">
+              <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice"
+                onclick="openQuizTab('QuizEnd')">
+                toSource()</p>
+              <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice">
+                splice()</p>
+              <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice">
+                toString()</p>
+              <p class="w3-padding w3-margin w3-mobile w3-small w3-ripple Quiz__choice">
+                unshift()</p>
+            </div>
+            <hr />
+          </article>
+
+          <!-- Quiz End -->
+          <article id="QuizEnd" class="w3-row-padding w3-margin w3-center w3-animate-opacity Article QuizTab hidden">
+            <div class="w3-col s12 m12 w3-margin-bottom">
+              <h4 class="w3-text-orange">JavaScript Easy Quiz : 10/10 => Scored 100%</h4>
+              <p class="w3-text-white">Result: Perfect! We can expect great things from you.</p>
+              <p class="w3-text-white"><b style="color:gold;">"Next, click the sun light"</b> || <em
+                  style="color: skyblue;">"Retake, click the swirling light"</em></p>
+            </div>
+            <img src="https://i.gifer.com/7bk3.gif" alt="the light" width="300px" class="w3-ripple pointer"
+              onclick="openQuizTab('QuizStart')">
+            <img src="https://i.gifer.com/YVWA.gif" alt="the light" width="150px" class="w3-ripple pointer"
+              onclick="openQuizTab('Quizzing1')">
+          </article>
+
+        </div>
+      </section>
+      <hr />
+    </main>
+
+    <!-- Footer -->
+    <footer class="Footer w3-section">
+      <div class="w3-container w3-text-white">
+        © CC9, Inc. 2021. <br />
+        Part of Suwit personal project. <br />
+        Hope you all enjoyed. <br />
+        May the wisdom be with you.
+      </div>
+
+      <div class="w3-container w3-center">
+        <div class="w3-text-white">Connect with us</div>
+        <a href="">
+          <img class="social-icon" src="https://i.pinimg.com/originals/76/40/a4/7640a47a8165bc33b08e948d903f5ef3.jpg"
+            alt="facebook icon">
+        </a>
+        <a href="">
+          <img class="social-icon" src="https://i.pinimg.com/474x/1f/93/eb/1f93eb44da74549b3c725b9e348b8e61.jpg"
+            alt="line icon">
+        </a>
+        <a href="">
+          <img class="social-icon"
+            src="https://www.seekpng.com/png/detail/351-3516255_png-file-svg-twitter-icon-white-square.png"
+            alt="twitter icon">
+        </a>
+      </div>
+    </footer>
+  </div>
+  <script>
+    function openPage(pageName) {
+      let tabs = document.getElementsByClassName('Page')
+      for (let i = 0; i < tabs.length; i++) {
+        tabs[i].style.display = "none"
+      }
+      document.getElementById(pageName).style.display = "block"
+    }
+  </script>
+
+  <script>
+    function openAdminTab(tabName) {
+      let tabs = document.getElementsByClassName('AdminTab')
+      for (let i = 0; i < tabs.length; i++) {
+        tabs[i].style.display = "none"
+      }
+      document.getElementById(tabName).style.display = "block"
+    }
+  </script>
+
+  <script>
+    function openQuizTab(tabName) {
+      let tabs = document.getElementsByClassName('QuizTab')
+      for (let i = 0; i < tabs.length; i++) {
+        tabs[i].style.display = "none"
+      }
+      document.getElementById(tabName).style.display = "block"
+    }
+  </script>
+</body>
+
+</html>
